@@ -187,16 +187,7 @@ void AP_Motors6DOF::setup_motors(motor_frame_class frame_class, motor_frame_type
         break;
     case SUB_FRAME_SIMPLEROV_4:
     case SUB_FRAME_SIMPLEROV_5:
-    default:
-        _frame_class_string = "DEFAULT";
-        add_motor_raw_6dof(AP_MOTORS_MOT_1,     0,              0,              -1.0f,          0,                  1.0f,               0,              1);
-        add_motor_raw_6dof(AP_MOTORS_MOT_2,     0,              0,              1.0f,           0,                  1.0f,               0,              2);
-        add_motor_raw_6dof(AP_MOTORS_MOT_3,     1.0f,           0,              0,              -1.0f,              0,                  0,              3);
-        add_motor_raw_6dof(AP_MOTORS_MOT_4,     -1.0f,          0,              0,              -1.0f,              0,                  0,              4);
-        add_motor_raw_6dof(AP_MOTORS_MOT_5,     0,              0,              0,              0,                  0,                  1.0f,           5);
-        break;
-    }
-      case OMNI_VECTOR_6DOF:
+    case OMNI_VECTOR_6DOF:
         _frame_class_string = "OMNI_VECTOR_6DOF";
         add_motor_raw_6dof(AP_MOTORS_MOT_1,    -1.0f,            1.0f,           1.0f,      -1.0f,           -1.0f,               -1.0f,              1);
         add_motor_raw_6dof(AP_MOTORS_MOT_2,     1.0f,            1.0f,          -1.0f,      -1.0f,           -1.0f,                1.0f,              2);
@@ -208,6 +199,16 @@ void AP_Motors6DOF::setup_motors(motor_frame_class frame_class, motor_frame_type
         add_motor_raw_6dof(AP_MOTORS_MOT_8,     1.0f,            1.0f,           1.0f,       1.0f,            1.0f,                1.0f,              8);
         break;
         /*Nguyen Tang 01/15/2025 */
+        
+    default:
+        _frame_class_string = "DEFAULT";
+        add_motor_raw_6dof(AP_MOTORS_MOT_1,     0,              0,              -1.0f,          0,                  1.0f,               0,              1);
+        add_motor_raw_6dof(AP_MOTORS_MOT_2,     0,              0,              1.0f,           0,                  1.0f,               0,              2);
+        add_motor_raw_6dof(AP_MOTORS_MOT_3,     1.0f,           0,              0,              -1.0f,              0,                  0,              3);
+        add_motor_raw_6dof(AP_MOTORS_MOT_4,     -1.0f,          0,              0,              -1.0f,              0,                  0,              4);
+        add_motor_raw_6dof(AP_MOTORS_MOT_5,     0,              0,              0,              0,                  0,                  1.0f,           5);
+        break;
+    }
 }
 
 void AP_Motors6DOF::add_motor_raw_6dof(int8_t motor_num, float roll_fac, float pitch_fac, float yaw_fac, float throttle_fac, float forward_fac, float lat_fac, uint8_t testing_order)
