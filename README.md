@@ -2,19 +2,7 @@
 
 This includes a modified thruster configuration for a 6DOF omnidirectional thruster configuration.
 
-The thrusters are numbered (from the pilot's POV) starting at the forward starboard top, then counterclockwise around the front face, then picking up at 5 at the rear starboard top.
-1: FST
-2: FPT
-3: FPB
-4: FSB
-5: RST
-6: RPT
-7: RPB
-8: RSB
-F/R = Forward/Rear
-S/P = Starboard/Port
-T/B = Top/Bottom 
-
+The motors are numbered like reading a book from the pilot's POV. Number 1 is the rear, top, port thruster.
 
 
 
