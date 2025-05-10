@@ -1,3 +1,10 @@
+# Internal Build of ArduPilot for Neptune Knights
+Based on ArduSub 4.5
+
+This includes a modified thruster configuration for a 6DOF omnidirectional thruster configuration.
+
+The motors are numbered like reading a book from the pilot's POV. Number 1 is the rear, top, port thruster.
+
 # ArduPilot Project
 
 <a href="https://ardupilot.org/discord"><img src="https://img.shields.io/discord/674039678562861068.svg" alt="Discord">
