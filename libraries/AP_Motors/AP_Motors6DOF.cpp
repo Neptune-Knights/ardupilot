@@ -177,7 +177,17 @@ void AP_Motors6DOF::setup_motors(motor_frame_class frame_class, motor_frame_type
 
     case SUB_FRAME_CUSTOM:
         // Put your custom motor setup here
-        //break;
+        	// roll pitch yaw throttle forward lateral
+        _frame_class_string = "OMNI_VECTOR_6DOF";
+        add_motor_raw_6dof(AP_MOTORS_MOT_1,    1.0f,            -1.0f,           1.0f,      1.0f,           -1.0f,               -1.0f,              1);
+        add_motor_raw_6dof(AP_MOTORS_MOT_2,     1.0f,            -1.0f,          -1.0f,      1.0f,           -1.0f,                1.0f,              2);
+        add_motor_raw_6dof(AP_MOTORS_MOT_3,    -1.0f,           1.0f,           1.0f,       -1.0f,           -1.0f,               -1.0f,              3);
+        add_motor_raw_6dof(AP_MOTORS_MOT_4,     1.0f,           1.0f,          -1.0f,       -1.0f,           -1.0f,                1.0f,              4);
+        add_motor_raw_6dof(AP_MOTORS_MOT_5,    1.0f,           1.0f,          -1.0f,      1.0f,            1.0f,               -1.0f,              5);
+        add_motor_raw_6dof(AP_MOTORS_MOT_6,     -1.0f,           1.0f,           1.0f,      1.0f,            1.0f,                1.0f,              6);
+        add_motor_raw_6dof(AP_MOTORS_MOT_7,    -1.0f,            -1.0f,          -1.0f,       -1.0f,            1.0f,               -1.0f,              7);
+        add_motor_raw_6dof(AP_MOTORS_MOT_8,     1.0f,            -1.0f,           1.0f,       -1.0f,            1.0f,                1.0f,              8);
+        break;
 
     case SUB_FRAME_SIMPLEROV_3:
         _frame_class_string = "SIMPLEROV_3";
