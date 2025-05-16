@@ -1,3 +1,35 @@
+# Current Build:
+
+Based on ArduSub 4.5
+
+## Building ArduPilot:
+This method is tested for Ubuntu 22 but should work on other versions. As of now, there is a patch in the install-prereqs-ubuntu.sh script for Ubuntu 24 that is not in ArduPilot 4.5, so it is recommended to use Ubuntu 22.
+On Ubuntu 22:
+- Clone the repo and cd into. Do NOT complete this in a repository that you plan to commit from. Have a second ArduPilot repository, to ensure the script works correctly, your build directory should be in ~/ardupilot. The build will produce extra files that should not be committed to GIT.
+- Checkout this branch:
+```git checkout NeptuneKnights-ArduSub-Stable-4.5```
+- Update submodules:
+```git submodule update --init --recursive```
+- More info on build requirements can be found [here](https://ardupilot.org/dev/docs/building-setup-linux.html#building-setup-linux)
+- Run the script to install prereqs from within ArduPilot directory.:
+```Tools/environment_install/install-prereqs-ubuntu.sh -y```
+At this point you may have an error. *As of May 2025:** The latest versions of empy break the ArduPilot build. To address this, the the install-prereqs-ubuntu.sh will attempt to install empy 3.3.4. However, an additional update to setuptools broke the install of empy 3.3.4. Currently the workaround is to manually install setuptools 49.6.0, then empy 3.3.4. After completing this step, rerun the Tools/environment_install/install-prereqs-ubuntu.sh, and it *should* run without error as it should skip over the empy package.
+```
+pip3 install setuptools=49.6.0
+pip3install empy=3.3.4
+```
+- Reload path (or close and reopen the terminal):
+```. ~/.profile```
+- Note, if you have done this on multiple versions of ArduPilot or attempted to run the install-prereqs-ubuntu.sh script multiple times, you may want to remove any duplicated lines in ~/.bashrc and ~/.profile
+- Now build ArduPilot:
+```
+./waf configure --board PixHawk4
+./waf sub
+```
+- If you need to rebuild after changes run this first:
+```./waf clean```
+- Once it is built, you will look in ~/ardupilot/build/Pixhawk4/bin and find the ardusub.apj. Copy this file to our main project directory and give it the appropiate name. Make sure not to overwrite any previous builds.
+
 # ArduPilot Project
 
 <a href="https://ardupilot.org/discord"><img src="https://img.shields.io/discord/674039678562861068.svg" alt="Discord">
